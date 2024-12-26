@@ -69,8 +69,14 @@ function Dijkstra(graph, vertexCount, sourceVertexNum)
     return result
 end
 
+-- =======
+-- TESTING
+-- =======
+local vertexCount = 5
+local sourceVertex = 1
+
 -- graph stuff
-myGraph = graphModule.new({rows = 5, columns = 5, defaultValue = 0})
+myGraph = graphModule.new({rows = vertexCount, columns = vertexCount, defaultValue = 0})
 myGraph:addEdge(1, 2, 2)
 myGraph:addEdge(1, 3, 6)
 myGraph:addEdge(1, 4, 2)
@@ -82,8 +88,12 @@ myGraph:addEdge(2, 3, 3)
 print(myGraph)
 
 -- result is returned as all vertices in order with updated distances from provided sourcevertex and their previous!
-local result = Dijkstra(myGraph, 5, 1)
+
+local initialTime = os.time()
+local result = Dijkstra(myGraph, vertexCount, sourceVertex)
+local benchmarkTime = os.time() - initialTime
 
 for i = 1, #result do
-    print("node number: " .. i .. ", distance from node 1: " .. result[i]:getDist())
+    print("node number: " .. i .. ", distance from node " .. sourceVertex .. ": " .. result[i]:getDist())
 end
+print(benchmarkTime)
