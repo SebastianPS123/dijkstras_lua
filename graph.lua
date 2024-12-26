@@ -21,7 +21,7 @@ args structure:
     columns,
     defaultValue
 }
-]]--
+]]
 
 function graph.new(args)
     return setmetatable({

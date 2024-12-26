@@ -1,3 +1,12 @@
+-- node class to represent vertices used in graph for dijkstra's algorithm
+
+--[[
+node: {
+    _dist,
+    _prev
+}
+]]
+
 node = {}
 node.__index = node
 
